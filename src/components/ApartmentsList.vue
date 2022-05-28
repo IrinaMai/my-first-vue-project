@@ -1,26 +1,20 @@
 <template>
     <ShareContainer>
+        <slot name="title"></slot>
         <div class="apartments-list">
-            <ApartmentItem
-            v-for="{id, price, rating, src, description } in items"
-            :key="id"
-            :description="description"
-            :imgSrc="src"
-            :price="price"
-            :rating="rating"
-            class="apartments-list__item"
-            />
+            <template v-for="apartment in items">
+            <slot name="apartment" v-bind:apartment="apartment"></slot>
+            </template>
         </div>
+        <slot name="summary"></slot>
     </ShareContainer>
 </template>
 
 <script>
-import ApartmentItem from './apartment/ApartmentItem.vue'
 import ShareContainer from './share/Container.vue'
     export default {
         name: 'ApartmentsList',
         components: {
-            ApartmentItem,
             ShareContainer
         },
         props: {
@@ -38,10 +32,6 @@ import ShareContainer from './share/Container.vue'
     flex-wrap: wrap;
     margin-left:-15px;
     margin-right: -15px;
-
-    &__item {
-        margin-bottom: 30px;
-    }
 }
 
 </style>

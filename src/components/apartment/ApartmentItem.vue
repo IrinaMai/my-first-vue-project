@@ -47,9 +47,10 @@ import StarRate from "../StarRate.vue";
 
 <style lang="scss" scoped>
 .apartment-item {
-    // position: relative;
+    position: relative;
     max-width: 350px;
     padding: 0 20px;
+    margin-bottom: 30px;
 
     &__inner {
         position: relative;
