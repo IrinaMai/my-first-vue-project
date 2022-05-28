@@ -1,45 +1,41 @@
 <template>
 <div>
-<h1>{{title}}</h1>
-  <MyButton @click="increment" outlined>Hello!!!!</MyButton>
-  <NewDirective></NewDirective>
-  <StarRate :rating="3.4"/>
-  </div>
+  <ApartmentItem 
+  :description="apartment.description"
+  :rating="apartment.rating"
+  :price="apartment.price"
+  :imgSrc="apartment.src"
+  
+  />
+</div>
 </template>
 
 <script>
-import MyButton from './components/MyButton.vue';
-import NewDirective from './components/NewDirective.vue';
-import StarRate from './components/StarRate.vue';
-
+import ApartmentItem from './components/apartment/ApartmentItem.vue';
 export default {
   name: 'App',
     components: {
-    MyButton,
-    NewDirective,
-    StarRate
-  },
-  data(){
-    return {
-      amountOfClicks: 0
+      ApartmentItem
+    },
+    data(){
+      return {
+        apartment: {
+          id: '1',
+          price: 1245,
+          rating:3,
+          src: '',
+          description: 'The IPTC took part in a panel on Diversity and Inclusion at the CEPIC Congress 2022, the picture industry’s ann',
+
+        }
+      }
     }
-  },
-  computed: {
-    title(){
-      return `Amount of clicks: ${this.amountOfClicks}`
-    }
-  },
-  methods: {
-    increment(){
-      this.amountOfClicks += 1;
-    }
-  }
+
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
