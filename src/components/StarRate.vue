@@ -21,11 +21,11 @@
             }
         },
         computed: {
-            raitingWidth(){
+            ratingWidth(){
                 return this.rating / this.starLimit *100;
             },
             ratingWidthStyle(){
-                return `width: ${this.raitingWidth}%;`
+                return `width: ${this.ratingWidth}%;`
             }
         }
     }

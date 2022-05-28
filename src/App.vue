@@ -1,33 +1,20 @@
 <template>
-<div>
-  <ApartmentItem 
-  :description="apartment.description"
-  :rating="apartment.rating"
-  :price="apartment.price"
-  :imgSrc="apartment.src"
-  
-  />
-</div>
+  <div>
+    <ApartmentsList :items="apartments"/>
+  </div>
 </template>
 
 <script>
-import ApartmentItem from './components/apartment/ApartmentItem.vue';
+import ApartmentsList from './components/ApartmentsList.vue';
+import apartments from './components/apartment/apartments.js'
+
 export default {
   name: 'App',
     components: {
-      ApartmentItem
-    },
+    ApartmentsList,
+},
     data(){
-      return {
-        apartment: {
-          id: '1',
-          price: 1245,
-          rating:3,
-          src: '',
-          description: 'The IPTC took part in a panel on Diversity and Inclusion at the CEPIC Congress 2022, the picture industry’s ann',
-
-        }
-      }
+      return {apartments}
     }
 
 }
