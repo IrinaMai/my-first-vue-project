@@ -1,5 +1,6 @@
 <template>
-    <div class="apartment-item">
+    <!-- <div class="apartment-item" @click="clickOnItem($event)"> -->
+        <div class="apartment-item">
         <div class="apartment-item__inner">
             <img :src="imgSrc" alt="" class="apartment-item__photo">
             <div class="apartment-item__content">
@@ -10,8 +11,8 @@
                 <StarRate :rating="rating"/>
             </div>
             <div class="apartment-item__price">UAH {{ price }}</div>
+        <a href="https://facebook.com" @click.prevent.stop="clickOnFacebook">FACEBOOK</a>
             </div>
-
         </div>
     </div>
 </template>
@@ -41,6 +42,14 @@ import StarRate from "../StarRate.vue";
                 type: String,
                 default: ''
             }
+    },
+    methods: {
+        // clickOnItem(event){
+        //     console.log(event)
+        // },
+        clickOnFacebook(){
+            console.log('click on FACEBOOK')
+        }
     }
 }
 </script>
@@ -67,6 +76,8 @@ import StarRate from "../StarRate.vue";
         cursor: pointer;
         z-index:1;
         line-height: 1.4;
+        // top: 8px;
+        // left: 7px;
 
         &:hover {
             opacity: 1;

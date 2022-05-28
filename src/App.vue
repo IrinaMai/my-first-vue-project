@@ -9,6 +9,7 @@
         :imgSrc="apartment.src"
         :price="apartment.price"
         :rating="apartment.rating"
+        @click="onApartmentItemClick(2,$event)"
         />
     </template>
     </ApartmentsList>
@@ -27,6 +28,11 @@ export default {
 },
     data(){
       return {apartments}
+    },
+    methods: {
+      onApartmentItemClick(index, event){
+        console.log(index, event)
+      }
     }
 
 }
