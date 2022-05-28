@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <slot> Dafault value</slot>
+        <slot>Dafault value</slot>
     </div>
 </template>
 

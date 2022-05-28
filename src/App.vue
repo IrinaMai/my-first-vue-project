@@ -1,5 +1,6 @@
 <template>
     <ApartmentsList :items="apartments">
+    <template v-slot:default>My Default Slot</template>
     <template v-slot:title>New Teatle </template>
     <template v-slot:apartment="{ apartment }">
       <ApartmentItem

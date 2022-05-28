@@ -1,6 +1,7 @@
 <template>
     <ShareContainer>
         <slot name="title"></slot>
+        <slot></slot>
         <div class="apartments-list">
             <template v-for="apartment in items">
             <slot name="apartment" v-bind:apartment="apartment"></slot>
