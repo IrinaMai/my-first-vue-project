@@ -1,5 +1,10 @@
 <template>
-    <input class="custom-input" :value="modelValue" @input="updateInput">
+    <input 
+    class="custom-input"
+    placeholder="Price from"
+    :value="modelValue"
+    @input = "$emit('update:modelValue', $event.target.value)"
+    />
 </template>
 
 <script>
@@ -11,11 +16,6 @@
                 default: "",
             }
         },
-        methods: {
-            updateInput(event){
-                this.$emit("update:modelValue", event.target.value);
-            }
-        }
     }
 </script>
 
@@ -29,5 +29,8 @@
     outline: none;
     line-height:inherit;
     padding: 8px 15px;
+    &::placeholder{
+        color: inherit
+    }
 }
 </style>

@@ -1,12 +1,17 @@
 <template>
-<button class="custom-button" :type="type">{{name}}</button>
+    <button 
+        class="custom-button" 
+        :type="type" 
+    >
+        {{descButton}}
+    </button>
 </template>
 
 <script>
     export default {
        name: "CustomButton",
        props: {
-           name: {
+           descButton: {
                type: String,
                default: "Confirm"
            },
@@ -24,6 +29,7 @@
 .custom-button {
     min-height: 40px;
     border: 2px solid $accent-color;
+    background-color: white;
     font-size: 18px;
     outline: none;
     line-height:inherit;

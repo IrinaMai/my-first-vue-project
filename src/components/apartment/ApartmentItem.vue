@@ -1,5 +1,8 @@
 <template>
     <div class="apartment-item">
+        <router-link 
+            :to="{name:'apartment', params:{id}}"
+            >
         <div class="apartment-item__inner">
             <img :src="imgSrc" alt="" class="apartment-item__photo">
             <div class="apartment-item__content">
@@ -13,6 +16,7 @@
             </div>
 
         </div>
+        </router-link>
     </div>
 </template>
 
@@ -25,6 +29,10 @@ import StarRate from "../StarRate.vue";
             StarRate
         },
         props: {
+            id: {
+                type: String,
+                required: true
+            },
             description: {
                 type: String,
                 default: ''

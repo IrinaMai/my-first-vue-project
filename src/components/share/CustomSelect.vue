@@ -1,7 +1,17 @@
 <template>
-<select class="custom-select" :value="modelValue" @input="updateSelect">
-    <option v-for="item in formattedOption" :key="item.label" :value="item.label">{{item.value}}</option>
-</select>
+    <select 
+        class="custom-select" 
+        @change = "$emit('update:modelValue', $event.target.value)"
+    >
+        <option 
+        v-for="item in formattedOption" 
+        :key="item.value" 
+        :value="item.value"
+        :selected= "item.selected"
+        >
+        {{item.label}}
+        </option>
+    </select>
 </template>
 
 <script>
@@ -17,16 +27,11 @@
                 default: "",
             }
         },
-        methods: {
-            updateSelect(event){
-                this.$emit("update:modelValue", event.target.value)
-            },
-        },
         computed: {
             formattedOption(){
                 return this.items.map(item => (typeof item === 'object') ? item : {label: item, value: item})
 
-            }
+            },
         }
         
     }
