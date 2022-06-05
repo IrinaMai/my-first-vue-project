@@ -12,7 +12,7 @@
 
 <script>
 import ApartmentsList from '../components/ApartmentsList.vue';
-import apartments from '../components/apartment/apartments.js';
+import {getApartmentsList} from '../servises/apartmentsServises';
 import ApartmentFilterForm from '../components/ApartmentFilterForm.vue';
 import Container from '../components/share/Container'
 
@@ -25,11 +25,21 @@ export default {
   },
   data(){
     return {
-      apartments,
+      apartments: [],
       filters: {
         city:'',
-        price: ''
+        price: '' 
         }
+    }
+  },
+  async created(){
+    console.log('created')
+    try{
+      const {data} = await getApartmentsList()
+      this.apartments = data
+      // console.log("hello",data)
+    }catch(error){
+      console.error
     }
   },
   computed: {
@@ -41,7 +51,6 @@ export default {
     filter({city, price}){
       this.filters.city = city,
       this.filters.price = price
-    //   console.log({city, price})
     },
     filterByCityName(apartments){
       if(!this.filters.city) return apartments

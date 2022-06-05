@@ -4,10 +4,10 @@
             :to="{name:'apartment', params:{id}}"
             >
         <div class="apartment-item__inner">
-            <img :src="imgSrc" alt="" class="apartment-item__photo">
+            <img :src="imgUrl" alt="" class="apartment-item__photo">
             <div class="apartment-item__content">
                 <p class="apartment-item__description">
-                    {{description}}
+                    {{descr}}
                 </p>
             <div class="apartment-item__rating">
                 <StarRate :rating="rating"/>
@@ -33,7 +33,7 @@ import StarRate from "../StarRate.vue";
                 type: String,
                 required: true
             },
-            description: {
+            descr: {
                 type: String,
                 default: ''
             },
@@ -45,7 +45,7 @@ import StarRate from "../StarRate.vue";
                 type: Number,
                 required: true
             },
-            imgSrc: {
+            imgUrl: {
                 type: String,
                 default: ''
             }

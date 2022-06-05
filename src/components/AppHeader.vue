@@ -1,7 +1,9 @@
 <template>
     <header class="header">
         <ShareContainer>
-
+            <router-link to="/">
+            <p class="header__logo">LOGO</p>
+            </router-link>
         </ShareContainer>
     </header>
 </template>
@@ -23,9 +25,12 @@ import ShareContainer from './share/Container.vue'
     .header {
         height: 60px;
         background-color: $main-color;
-        margin-bottom:30px
+        margin-bottom:30px;
         // position: absolute;
         // top: 0;
         // left:0;
+        &__logo{
+            color: $accent-color;
+        }
     }
 </style>

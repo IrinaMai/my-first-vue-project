@@ -2,11 +2,11 @@
     <ShareContainer>
         <div class="apartments-list">
             <ApartmentItem
-            v-for="{id, price, rating, src, description } in items"
+            v-for="{id, price, rating, imgUrl, descr } in items"
             :key="id"
             :id="id"
-            :description="description"
-            :imgSrc="src"
+            :descr="descr"
+            :imgUrl="imgUrl"
             :price="price"
             :rating="rating"
             class="apartments-list__item"

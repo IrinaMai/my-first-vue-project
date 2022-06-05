@@ -4,8 +4,8 @@
     <h1 class="apartment__title">{{apartment.title}}</h1>
     <StarRate :rating="apartment.rating"/>
     </div>
-    <img class="apartment__img" :src="apartment.src" :alt="apartment.title">
-    <p class="apartment__description">{{apartment.description}}</p>
+    <img class="apartment__img" :src="apartment.imgUrl" :alt="apartment.title">
+    <p class="apartment__description">{{apartment.descr}}</p>
 </section>
 </template>
 
