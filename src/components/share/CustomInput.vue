@@ -10,11 +10,42 @@
 <script>
     export default {
         name: "CustomInput",
+        data(){
+
+        },
         props: {
             modelValue:{
                 type: [String, Number],
                 default: "",
             }
+        },
+        watch: {
+            value(){
+                this.validate()
+            }
+        },
+        inject: ['form'],
+        mounted(){
+            if(!this.form) return;
+            this.form.registerInput(this)
+        },
+        beforeUnmount(){
+            if(!this.form) return;
+            this.form.unregisterInput(this) 
+        },
+        methods: {
+            validate(){
+                this.isValid = this.rules.every(rule => {
+                    const {hasPassed, message} = rule(this.value);
+                    if(!hasPassed){
+                        this.error = message || this.errorMessage
+                    }
+                    return hasPassed
+                })
+            },
+            reset(){
+                this.$emit('input', '');
+            },
         },
     }
 </script>
